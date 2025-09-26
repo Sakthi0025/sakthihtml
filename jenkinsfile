@@ -4,17 +4,18 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
+                    credentialsId: 'github-credentials',
                     url: 'https://github.com/Sakthi0025/day6-html-app.git'
             }
         }
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'Building the project...'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying project...'
             }
         }
     }
