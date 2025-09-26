@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/<your-username>/day6-html-app.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'No build needed for static HTML files'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    echo "Deploying HTML files..."
+                    sudo cp -r * /var/www/html/
+                '''
+            }
+        }
+    }
+}
