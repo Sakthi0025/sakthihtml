@@ -1,25 +1,20 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/day6-html-app.git'
+                git branch: 'main',
+                    url: 'https://github.com/Sakthi0025/day6-html-app.git'
             }
         }
-
         stage('Build') {
             steps {
-                echo 'No build needed for static HTML files'
+                echo 'Building...'
             }
         }
-
         stage('Deploy') {
             steps {
-                sh '''
-                    echo "Deploying HTML files..."
-                    sudo cp -r * /var/www/html/
-                '''
+                echo 'Deploying...'
             }
         }
     }
